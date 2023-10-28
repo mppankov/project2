@@ -11,4 +11,9 @@ class Truck extends Car
         parent::__construct($engine);
         $this->capacity = $capacity;
     }
+    public function toString(): string
+    {
+        return "door: \n" . $this->door . "engine: \n" . $this->engine. "engine: \n" . $this->capacity;
+
+    }
 }

@@ -13,7 +13,7 @@ class Car
     }
     public function toString(): string
     {
-        return "door: " . $this->door . "; engine: " . $this->engine;
+        return "door: \n" . $this->door . "engine: \n" . $this->engine;
     }
 
 }
