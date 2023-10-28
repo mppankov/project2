@@ -2,19 +2,20 @@
 
 namespace Pr2\Car;
 
-class Car
+class Car extends Bike
 {
-    public int $door = 2;
-    public int $engine;
+    
+    public int $door;
+    public int $wheel = 4;
 
-    public function __construct(int $engine)
+    public function __construct (int $engine, int $door)
     {
-        $this->engine = $engine * 2;
+        parent::__construct($engine);
+        $this->door = $door;
     }
     public function toString(): string
     {
-        return "door: \n" . $this->door . "engine: \n" . $this->engine;
+        return "wheel: " . $this->wheel . "\nengine: " . $this->engine. "\ndoor: " . $this->door;
+
     }
-
 }
-
