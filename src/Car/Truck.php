@@ -4,7 +4,6 @@ namespace Pr2\Car;
 
 class Truck extends Car
 {
-    public int $door = 2;
     public int $wheel = 6;
     public int $capacity;
 
