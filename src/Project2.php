@@ -1,5 +1,6 @@
 <?php
 
+use Pr2\Zavod\Zavod;
 use Pr2\Car\Bike;
 use Pr2\Car\Car;
 use Pr2\Car\Truck;
@@ -15,5 +16,8 @@ $u = new StringUtils();
 $c = new Bike(1);
 $q = new Car(1, 2);
 $tr = new Truck(1, 2, 10);
+$zavod = new Zavod();
 
-echo $tr->toString();
+var_dump ($zavod->getDetails(1000));
+
+var_dump ($zavod->qualityControl->getSuccessRate());
