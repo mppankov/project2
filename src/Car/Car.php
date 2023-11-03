@@ -2,20 +2,28 @@
 
 namespace Pr2\Car;
 
-class Car extends Bike
+use Pr2\Car\Aggregates\Engine;
+use Pr2\Car\Elements\Doors;
+use Pr2\Car\Elements\Starter;
+
+class Car
 {
-    
-    public int $door;
-    public int $wheel = 4;
-
-    public function __construct (int $engine, int $door)
+    public Doors $doors;
+    public Starter $starter;
+    public Engine $engine;
+    public function __construct()
     {
-        parent::__construct($engine);
-        $this->door = $door;
+        $this->doors = new Doors();
+        $this->starter = new Starter();
+        $this->engine = new Engine();
     }
-    public function toString(): string
-    {
-        return "wheel: " . $this->wheel . "\nengine: " . $this->engine. "\ndoor: " . $this->door;
 
+    public function carCondition()
+    {
+        $doors = $this->doors->isClosingDoors();
+        $engineCondition = $this->engine->engineCondition($this->starter->toStart($doors));
+
+        return $doors;
+        return $engineCondition;
     }
 }

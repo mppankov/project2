@@ -11,16 +11,16 @@ class QualityControl
     {
         if ($detail == "GoodDetail")
         {
-            $this->goodDetail++;
+            $this->goodDetails++;
             return true;
         } else 
         {
-            $this->badDetail++;
+            $this->badDetails++;
             return false;
         }
     }
     public function getSuccessRate(): float
     {
-         return 100  / ($this->goodDetail + $this->badDetail) * $this->goodDetail / 100;
+         return 100  / ($this->goodDetails + $this->badDetails) * $this->goodDetails / 100;
     }
 }
