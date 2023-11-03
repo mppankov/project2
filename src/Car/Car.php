@@ -23,7 +23,7 @@ class Car
         $doors = $this->doors->isClosingDoors();
         $engineCondition = $this->engine->engineCondition($this->starter->toStart($doors));
 
-        return $doors;
-        return $engineCondition;
+        var_dump ($doors);
+        var_dump ($engineCondition);
     }
 }
