@@ -16,12 +16,20 @@ class Car
         $this->controlUnit = new ControlUnit();
     }
 
-    public function isStartingTheEngine()
+    public function StartingTheEngine()
     {
-        var_dump ($this->engine->isEngineCondition());
+        $status = $this->controlUnit->diagnostics();
+        if ($status === true) {
+            $this->engine->start();
+        }
     }
+    public function StoppedTheEngine()
+    {
+        $this->engine->stop();
+    }
+
     public function isPutAlarm()
     {
-        var_dump ($this->controlUnit->securityStatus());
+        return ($this->controlUnit->canSetAlertOn());
     }
 }

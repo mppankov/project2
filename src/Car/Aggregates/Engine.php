@@ -2,26 +2,19 @@
 
 namespace Pr2\Car\Aggregates;
 
-use Pr2\Car\Control\ControlUnit;
 
 class Engine
 {
-    public ControlUnit $controlUnit;
-    
 
-    public function __construct()
+    public bool $isRunning = false;
+
+
+    public function start(): void
     {
-        $this->controlUnit = new ControlUnit();
+        $this->isRunning = true;
     }
-
-    public function isEngineCondition(): string
+    public function stop(): void
     {
-        $controlUnit = $this->controlUnit->diagnostics();
-
-        if ($controlUnit == "system ok") {
-            return "system ok\nThe engine is running";
-        } else {
-            return "{$controlUnit}";
-        }
+        $this->isRunning = false;
     }
 }

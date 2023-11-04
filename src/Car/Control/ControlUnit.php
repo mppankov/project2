@@ -9,31 +9,36 @@ class ControlUnit
 {
     public Battery $battery;
     public Doors $doors;
+
+    public bool $isAllertOn = false;
+
     public function __construct()
     {
         $this->battery = new Battery();
         $this->doors = new Doors();
     }
     
-    public function diagnostics(): string
+    public function diagnostics(): bool
     {
         $doors =  $this->doors->isClosingDoors();
         $battery = $this->battery->charge();
 
+        var_dump ([$doors, $battery]);
+        
         if ($doors == "The doors are closed" && $battery == "The charge is good") {
-            return "system ok";
+            return true;
         } else {
-            return "Diagnostics:\n-{$doors}\n-{$battery}";
+            return false;
         }
     }
-        public function securityStatus(): string
+        public function canSetAlertOn(): bool
         {
-            $doors =  $this->doors->isClosingDoors();  
+            $doors = $this->doors->isClosingDoors();  
 
             if ($doors == "The doors are closed") {
-                return "The alarm is on";
+                return true;
             } else {
-                return "Close the door";
+                return false;
             }
         }
 }
