@@ -17,3 +17,5 @@ $carEngine = new Car();
 
 
 $carEngine->isStartingTheEngine();
+
+$carEngine->isPutAlarm();

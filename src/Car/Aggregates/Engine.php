@@ -2,7 +2,7 @@
 
 namespace Pr2\Car\Aggregates;
 
-use Pr2\Car\ElectricalElements\ControlUnit;
+use Pr2\Car\Control\ControlUnit;
 
 class Engine
 {

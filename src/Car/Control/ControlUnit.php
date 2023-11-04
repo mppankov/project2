@@ -1,6 +1,6 @@
 <?php
 
-namespace Pr2\Car\ElectricalElements;
+namespace Pr2\Car\Control;
 
 use Pr2\Car\Elements\Battery;
 use Pr2\Car\Elements\Doors;
