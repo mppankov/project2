@@ -3,17 +3,17 @@
 namespace Pr2\Car;
 
 use Pr2\Car\Aggregates\Engine;
-use Pr2\Car\Control\AlarmSystem;
+use Pr2\Car\Control\ControlUnit;
 
 class Car
 {
     public Engine $engine;
-    public AlarmSystem $alarmSystem;
+    public ControlUnit $controlUnit;
 
     public function __construct()
     {
         $this->engine = new Engine();
-        $this->alarmSystem = new AlarmSystem();
+        $this->controlUnit = new ControlUnit();
     }
 
     public function isStartingTheEngine()
@@ -22,6 +22,6 @@ class Car
     }
     public function isPutAlarm()
     {
-        var_dump ($this->alarmSystem->securityStatus());
+        var_dump ($this->controlUnit->securityStatus());
     }
 }

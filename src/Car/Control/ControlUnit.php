@@ -14,6 +14,7 @@ class ControlUnit
         $this->battery = new Battery();
         $this->doors = new Doors();
     }
+    
     public function diagnostics(): string
     {
         $doors =  $this->doors->isClosingDoors();
@@ -25,5 +26,15 @@ class ControlUnit
             return "Diagnostics:\n-{$doors}\n-{$battery}";
         }
     }
+        public function securityStatus(): string
+        {
+            $doors =  $this->doors->isClosingDoors();  
+
+            if ($doors == "The doors are closed") {
+                return "The alarm is on";
+            } else {
+                return "Close the door";
+            }
+        }
 }
 
