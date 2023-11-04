@@ -11,10 +11,9 @@ require_once __DIR__.'/../vendor/autoload.php';
 $b = new Boar();
 $t = new AppleTree();
 $u = new StringUtils();
-$q = new Car(1, 2);
 $zavod = new Zavod();
-$carCondition = new Car();
+$carEngine = new Car();
 
 
 
-$carCondition->carCondition();
+$carEngine->isStartingTheEngine();

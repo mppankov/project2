@@ -4,7 +4,7 @@ namespace Pr2\Car\Elements;
 
 class Doors
 {
-   public function isClosingDoors (): string
+   public function isClosingDoors(): string
    {
         if (rand(0, 4) == 4)
         {
