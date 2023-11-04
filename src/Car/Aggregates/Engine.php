@@ -2,13 +2,16 @@
 
 namespace Pr2\Car\Aggregates;
 
-use Pr2\Car\Elements\ControlUnit;
+use Pr2\Car\ElectricalElements\ControlUnit;
 
 class Engine
 {
     public ControlUnit $controlUnit;
 
-    
+    public function __construct()
+    {
+        $this->controlUnit = new ControlUnit();
+    }
 
     public function isEngineCondition(): string
     {

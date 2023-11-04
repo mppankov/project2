@@ -1,6 +1,9 @@
 <?php
 
-namespace Pr2\Car\Elements;
+namespace Pr2\Car\ElectricalElements;
+
+use Pr2\Car\Elements\Battery;
+use Pr2\Car\Elements\Doors;
 
 class ControlUnit
 {
@@ -16,13 +19,10 @@ class ControlUnit
         $doors =  $this->doors->isClosingDoors();
         $battery = $this->battery->charge();
 
-        switch (true)
-        {
-            case $doors == "The doors are closed":
-            case $battery == "The charge is good":
-                return "system ok";
-            default:
-                return "Diagnostics:\n{$doors}\n{$battery}";
+        if ($doors == "The doors are closed" && $battery == "The charge is good") {
+            return "system ok";
+        } else {
+            return "Diagnostics:\n-{$doors}\n-{$battery}";
         }
     }
 }

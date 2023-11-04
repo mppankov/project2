@@ -6,7 +6,7 @@ class Doors
 {
    public function isClosingDoors(): string
    {
-        if (rand(0, 4) == 4)
+        if (rand(3, 4) == 4)
         {
             return "The doors are closed";
         } else {
