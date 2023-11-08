@@ -4,13 +4,13 @@ namespace Pr2\Car\Elements;
 
 class Doors
 {
-   public function isClosingDoors(): string
+   public function isClosingDoors(): bool
    {
-        if (rand(3, 4) == 4)
+        if (rand(3, 4) === 4)
         {
-            return "The doors are closed";
+            return true;
         } else {
-            return "The doors are not closed";
+            return false;
         }
    }
 }

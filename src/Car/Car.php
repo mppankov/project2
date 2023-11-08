@@ -18,8 +18,10 @@ class Car
 
     public function StartingTheEngine()
     {
-        $status = $this->controlUnit->diagnostics();
-        if ($status === true) {
+        $status = $this->controlUnit->preLaunchCheck();
+
+        if ($status === true)
+        {
             $this->engine->start();
         }
     }
