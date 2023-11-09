@@ -6,7 +6,7 @@ class Doors
 {
    public function isClosingDoors(): bool
    {
-        if (rand(3, 4) === 4)
+        if (rand(3, 4) == 4)
         {
             return true;
         } else {

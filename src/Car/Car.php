@@ -16,16 +16,16 @@ class Car
         $this->controlUnit = new ControlUnit();
     }
 
-    public function StartingTheEngine()
+    public function startingTheEngine()
     {
         $status = $this->controlUnit->preLaunchCheck();
 
-        if ($status === true)
+        if ($status == true)
         {
             $this->engine->start();
         }
     }
-    public function StoppedTheEngine()
+    public function stoppedTheEngine()
     {
         $this->engine->stop();
     }

@@ -18,33 +18,33 @@ class Dashboard
         $this->controlUnit = new ControlUnit;
     }
 
-    public function DoorsStatus()
+    public function doorsStatus(): string
     {
         $doors = $this->doors->isClosingDoors();
 
-        if($doors === true)
+        if($doors == true)
         {
             return "The doors are closed";
         } else {
             return "The doors are not closed";
         }
     }
-    public function BatteryStatus()
+    public function batteryStatus(): string
     {
         $charge = $this->battery->charge();
 
-        if($charge === true)
+        if($charge == true)
         {
             return "The charge is normal";
         } else {
             return "Battery charge - {$charge}%";
         }
     }
-    public function AlarmStatus()
+    public function alarmStatus(): string
     {
         $alarm = $this->controlUnit->canSetAlertOn();
 
-        if($alarm === true)
+        if($alarm == true)
         {
             return "The alarm is on";
         } else {

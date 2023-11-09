@@ -9,7 +9,7 @@ class Engine
     public bool $isRunning = false;
 
 
-    public function Start(): void
+    public function start(): void
     {
         $this->isRunning = true;
     }

@@ -22,10 +22,10 @@ class ControlUnit
     
     public function preLaunchCheck(): bool
     {
-        $doors =  $this->doors->isClosingDoors();
+        $doors = $this->doors->isClosingDoors();
         $battery = $this->battery->charge();
         
-        if ($doors === true && $battery === true) {
+        if ($doors == true && $battery == true) {
             return true;
         } else {
             return false;
@@ -35,19 +35,19 @@ class ControlUnit
     {
         $doors = $this->doors->isClosingDoors();  
 
-        if ($doors === true) {
+        if ($doors == true) {
             return true;
         } else {
             return false;
         }
     }
-    public function Diagnostics()
+    public function diagnostics(): string
     {
-        $doors = $this->dashBoard->DoorsStatus();
-        $battery = $this->dashBoard->BatteryStatus();
-        $alarm = $this->dashBoard->AlarmStatus();
+        $doors1 = $this->dashBoard->doorsStatus();
+        $battery1 = $this->dashBoard->batteryStatus();
+        $alarm1 = $this->dashBoard->alarmStatus();
 
-        return "Diagnostics:\n1-{$doors}\n{$battery}\n{$alarm}";
+        return "Diagnostics:\n1-{$doors1}\n{$battery1}\n{$alarm1}";
     }
 
 

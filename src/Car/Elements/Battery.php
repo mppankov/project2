@@ -15,4 +15,5 @@ class Battery
             return false;
         }
     }
+    
 }
