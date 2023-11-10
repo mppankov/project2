@@ -7,48 +7,83 @@ use Pr2\Car\Elements\Doors;
 
 class Dashboard
 {
+    public ControlUnit $controlUnit;
+
+    public function __construct()
+    {
+        $this->controlUnit = new ControlUnit();
+    }
+    public function displayEngineStatus()
+    {
+        $status = $this->controlUnit->conditionEngine();
+
+        if ($status == true)
+        {
+            var_dump ("the engine is running");
+        } else {
+            var_dump ("the engine is not running");
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     public Doors $doors;
     public Battery $battery;
     public ControlUnit $controlUnit;
 
     public function __construct()
     {
-        $this->doors = new Doors;
-        $this->battery = new Battery;
-        $this->controlUnit = new ControlUnit;
+        $this->doors = new Doors();
+        $this->battery = new Battery();
+        $this->controlUnit = new ControlUnit();
     }
 
-    public function doorsStatus(): string
+    public function doorsStatus(): void
     {
         $doors = $this->doors->isClosingDoors();
 
         if($doors == true)
         {
-            return "The doors are closed";
+            var_dump ("The doors are closed");
         } else {
-            return "The doors are not closed";
+            var_dump ("The doors are not closed");
         }
     }
-    public function batteryStatus(): string
+    public function batteryStatus(): void
     {
         $charge = $this->battery->charge();
 
         if($charge == true)
         {
-            return "The charge is normal";
+            var_dump ("The charge is normal");
         } else {
-            return "Battery charge - {$charge}%";
+            var_dump ("Battery charge - {$charge}%");
         }
     }
-    public function alarmStatus(): string
+    public function alarmStatus(): void
     {
-        $alarm = $this->controlUnit->canSetAlertOn();
+        $alarm = $this->battery->charge();
 
         if($alarm == true)
         {
-            return "The alarm is on";
+            var_dump ("The alarm is on");
         } else {
-            return "the alarm is off";
+            var_dump ("the alarm is off");
         }
     }
+    */
 }
