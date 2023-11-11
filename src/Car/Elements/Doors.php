@@ -4,13 +4,17 @@ namespace Pr2\Car\Elements;
 
 class Doors
 {
-   public function isClosingDoors(): bool
+    public int $closedDoors = 1;
+    public int $openDoors = 3;
+
+   public function openTheDoors(): void
    {
-        if (rand(3, 4) == 4)
-        {
-            return true;
-        } else {
-            return false;
-        }
+    $this->closedDoors = 0;
+    $this->openDoors = 4;
+   }
+   public function closeTheDoors(): void
+   {
+    $this->closedDoors = 4;
+    $this->openDoors = 0;
    }
 }

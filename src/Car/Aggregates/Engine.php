@@ -7,7 +7,7 @@ class Engine
 {
 
     public bool $isRunning = false;
-    public int $oilLevel = 70;
+    public int $oilLevel = 60;
 
 
     public function start(): void
@@ -21,5 +21,9 @@ class Engine
     public function getOilLevel(): int
     {
         return $this->oilLevel;
+    }
+    public function pourOil()
+    {
+        $this->oilLevel = 100;
     }
 }

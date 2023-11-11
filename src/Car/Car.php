@@ -2,33 +2,44 @@
 
 namespace Pr2\Car;
 
-use Pr2\Car\Aggregates\Engine;
+
 use Pr2\Car\Control\ControlUnit;
-use Pr2\Car\Control\Dashboard;
+use Pr2\Car\Aggregates\Engine;
+use Pr2\Car\Elements\Battery;
+use Pr2\Car\Elements\Doors;
 
 class Car
 {
-    public Engine $engine;
     public ControlUnit $controlUnit;
+    public Engine $engine;
+    public Doors $doors;
+    public Battery $battery;
 
-    public function __construct(Engine $engine, ControlUnit $controlUnit)
+    public function __construct(ControlUnit $controlUnit, Engine $engine, Doors $doors, Battery $battery)
     {
-        $this->engine = $engine;
         $this->controlUnit = $controlUnit;
-        
+        $this->engine = $engine;
+        $this->doors = $doors;
+        $this->battery = $battery;   
     }
+
+
     public function start(): void
     {
-        $this->engine->start();
+           
+        if ($this->controlUnit->checkEngine($this->engine, $this->doors, $this->battery) === true)
+        {
+            $this->engine->start();
+            var_dump ("the engine started");
+        } else {
+            var_dump ("error");
+        }
     }
     public function stop(): void
     {
         $this->engine->stop();
     }
-    public function learnConditionEngine()
-    {
-        $this->controlUnit->checkEngineCondition($this->engine->isRunning);
-    }
+    
     
 
     

@@ -4,16 +4,12 @@ namespace Pr2\Car\Elements;
 
 class Battery
 {
-    public function charge(): bool
-    {
-        $charge = rand(0, 100);
+    public int $charge = 40;
 
-        if ($charge > 40)
-        {
-            return true;
-        } else {
-            return false;
-        }
+
+    public function chargeTheBattery(): void
+    {
+        $this->charge = 100;
     }
     
 }

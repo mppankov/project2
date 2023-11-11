@@ -2,20 +2,12 @@
 
 namespace Pr2\Car\Control;
 
-use Pr2\Car\Elements\Battery;
-use Pr2\Car\Elements\Doors;
 
 class Dashboard
 {
-    public ControlUnit $controlUnit;
-
-    public function __construct()
+    
+    public function displayEngineStatus(bool $status): void
     {
-        $this->controlUnit = new ControlUnit();
-    }
-    public function displayEngineStatus()
-    {
-        $status = $this->controlUnit->conditionEngine();
 
         if ($status == true)
         {
@@ -23,6 +15,10 @@ class Dashboard
         } else {
             var_dump ("the engine is not running");
         }
+    }
+    public function displayEngineOil(int $oilLevel): void
+    {
+         var_dump ("Oil level - {$oilLevel}%");
     }
 
 

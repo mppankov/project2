@@ -9,15 +9,20 @@ use Pr2\Car\Elements\Doors;
 class ControlUnit
 {
 
-    public function checkEngineCondition(bool $condition): string
+    public function checkEngine(Engine $engine, Doors $doors, Battery $battery): bool
     {
-        if ($condition == true)
-        {   
-            return "the engine is running";
+
+        if ($engine->isRunning === false && 
+            $engine->oilLevel >= 90 && 
+            $doors->openDoors === 0 && 
+            $battery->charge >= 70)
+        {
+            return true;  
         } else {
-            return "the engine is not running";
+            return false;
         }
     }
+    
 
 
 
