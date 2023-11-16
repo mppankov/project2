@@ -9,7 +9,7 @@ class Dashboard
     public function displayEngineStatus(bool $status): void
     {
 
-        if ($status == true)
+        if ($status === true)
         {
             var_dump ("the engine is running");
         } else {
