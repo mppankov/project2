@@ -5,25 +5,28 @@ namespace Pr2\Car;
 
 use Pr2\Car\Control\ControlUnit;
 use Pr2\Car\Aggregates\Engine;
+use Pr2\Car\Control\AlarmSystem;
 use Pr2\Car\Elements\Battery;
-use Pr2\Car\Elements\Doors;
+
 
 class Car
 {
     public ControlUnit $controlUnit;
     public Engine $engine;
-    public Doors $doors;
+    public AlarmSystem $alarmSystem;
     public Battery $battery;
 
+    // конструктор является частью инкапсуляции, ограничивая типы передаваемых данных в свойства и методы
+    //вызывается обязательно при создании класса
     public function __construct(
-     ControlUnit $controlUnit,
-      Engine $engine,
-       Doors $doors,
+        ControlUnit $controlUnit,
+        Engine $engine,
+        AlarmSystem $alarmSystem,
         Battery $battery)
     {
         $this->controlUnit = $controlUnit;
         $this->engine = $engine;
-        $this->doors = $doors;
+        $this->alarmSystem = $alarmSystem;
         $this->battery = $battery;   
     }
 
@@ -31,10 +34,7 @@ class Car
     public function start(): void
     {
            
-        if ($this->controlUnit->checkEngine(
-            $this->engine,
-             $this->doors,
-              $this->battery) === true)
+        if ($this->controlUnit->checkEngine($this->engine,$this->alarmSystem,$this->battery) === true)
         {
             $this->engine->start();
             var_dump ("the engine started");

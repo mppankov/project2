@@ -4,20 +4,17 @@ namespace Pr2\Car\Control;
 
 use Pr2\Car\Aggregates\Engine;
 use Pr2\Car\Elements\Battery;
-use Pr2\Car\Elements\Doors;
+
 
 class ControlUnit
 {
 
-    public function checkEngine(
-        Engine $engine,
-         Doors $doors,
-          Battery $battery): bool
+    public function checkEngine(Engine $engine,AlarmSystem $alarmSystem,Battery $battery): bool
     {
-
         if ($engine->isRunning === false && 
-            $engine->oilLevel >= 90 && 
-            $doors->openDoors === 0 && 
+            $engine->getOilLevel() >= 90 && 
+            $alarmSystem->openDoors === 0 && 
+            $alarmSystem->alarmStatus === false &&
             $battery->charge >= 70)
         {
             return true;  

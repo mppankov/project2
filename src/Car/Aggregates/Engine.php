@@ -7,7 +7,9 @@ class Engine
 {
 
     public bool $isRunning = false;
-    public int $oilLevel = 60;
+    //проявление инкапсуляции. запрет прямого доступа к свойству класса. доступ через геттер getOilLevel()
+    // сеттером меняеться значение свойства
+    private int $oilLevel = 60;
 
 
     public function start(): void
@@ -22,6 +24,7 @@ class Engine
     {
         return $this->oilLevel;
     }
+    // setOilLevel(int $level) - инкапсуляция
     public function pourOil()
     {
         $this->oilLevel = 100;
