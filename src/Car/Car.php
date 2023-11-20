@@ -16,8 +16,7 @@ class Car
     public AlarmSystem $alarmSystem;
     public Battery $battery;
 
-    // конструктор является частью инкапсуляции, ограничивая типы передаваемых данных в свойства и методы
-    //вызывается обязательно при создании класса
+    // конструктор 
     public function __construct(
         ControlUnit $controlUnit,
         Engine $engine,

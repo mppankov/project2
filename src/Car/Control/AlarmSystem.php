@@ -16,7 +16,7 @@ class AlarmSystem extends Doors
 
     public function isPutAlarm(): void
     {
-        //$this используется в методе, если он был вызван в контексте объекта.
+        //$this
           $this->closeTheDoors();
           $this->alarmStatus = true;
     }

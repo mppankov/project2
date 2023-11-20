@@ -7,8 +7,7 @@ class Engine
 {
 
     public bool $isRunning = false;
-    //проявление инкапсуляции. запрет прямого доступа к свойству класса. доступ через геттер getOilLevel()
-    // сеттером меняеться значение свойства
+    
     private int $oilLevel = 60;
 
 
