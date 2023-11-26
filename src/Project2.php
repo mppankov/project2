@@ -10,7 +10,7 @@ use Pr2\Car\Elements\Doors;
 use Pr2\Shapes\Circle;
 use Pr2\Shapes\Rectangle;
 use Pr2\Shapes\Square;
-use Pr2\Utils\CalculateSquare;
+use Pr2\Shapes\SquareInterface;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
@@ -31,7 +31,8 @@ $objects = [
 
 
     foreach ($objects as $object) {
-        if ($object instanceof CalculateSquare) {
-            var_dump ("Объект класса " . get_class($object) . " реализует интерфейс CalculateSquare. Площадь: " . $object->calculateSquare() . "\n");
+        if ($object instanceof SquareInterface) {
+            var_dump ("Объект класса " . get_class($object) . 
+            " реализует интерфейс CalculateSquare. Площадь: " . $object->calculateSquare() . "\n");
         }
     }

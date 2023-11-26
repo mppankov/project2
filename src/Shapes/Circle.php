@@ -2,9 +2,8 @@
 
 namespace Pr2\Shapes;
 
-use Pr2\Utils\CalculateSquare;
 
-class Circle implements CalculateSquare
+class Circle implements SquareInterface
 {
     const PI = 3.1416;
 
@@ -17,7 +16,6 @@ class Circle implements CalculateSquare
 
     public function calculateSquare(): float
     {
-        $pi = 3.1416;
         return self::PI * ($this->r ** 2);
     }
 }

@@ -2,9 +2,7 @@
 
 namespace Pr2\Shapes;
 
-use Pr2\Utils\CalculateSquare;
-
-class Square implements CalculateSquare
+class Square implements SquareInterface
 {
     private $x;
 

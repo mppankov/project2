@@ -1,8 +1,8 @@
 <?php
 
-namespace Pr2\Utils;
+namespace Pr2\Shapes;
 
-interface CalculateSquare
+interface SquareInterface
 {
     public function calculateSquare(): float;
 }

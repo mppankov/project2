@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Форма поиска в Яндексе</title>
+</head>
+<body>
+<form action="https://yandex.ru/search/">
+    <input type="text" name="text">
+    <input type="submit" value="Найти в Яндексе">
+</form>
+<form>
+<label for="loginField">Логин</label>
+<input id="loginField" type="text" name="login">
+
+<label for="emailField">Email</label>
+<input id="emailField" type="text" name="email">
+</form>
+<form method="post" action="/login/">
+    <table>
+        <tr>
+            <td><label for="loginField">Логин</label></td>
+            <td><input id="loginField" type="text" name="login"></td>
+        </tr>
+        <tr>
+            <td><label for="passwordField">Пароль</label></td>
+            <td><input id="passwordField" type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="submit" value="Войти"></td>
+        </tr>
+    </table>
+</form>
+<form method="post" action="/im/">
+    <label for="nameField">Имя</label><br>
+    <input type="text" id="nameField" size="30" name="name">
+    <br>
+    <label for="messageField">Сообщение</label><br>
+    <textarea name="message" id="messageField" cols="50" rows="10">Введите здесь своё сообщение...</textarea>
+    <br>
+    <input type="submit" value="Отправить сообщение">
+</form>
+<form action="/order">
+    <label>
+        Завтрак
+        <input type="checkbox" name="breakfast" checked>
+    </label>
+    <br>
+    <label>
+        Обед
+        <input type="checkbox" name="lunch">
+    </label>
+    <br>
+    <label>
+        Ужин
+        <input type="checkbox" name="dinner" checked>
+    </label>
+</form>
+<form action="/order">
+    Выберите цвет футболки:
+    <br>
+    <label>
+        <input type="radio" name="color" value="red">
+        Красная
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="color" value="blue" checked>
+        Синяя
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="color" value="green">
+        Зелёная
+    </label>
+</form>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="fileField">Выберите файл для загрузки:</label>
+    <input type="file" name="uploadingFile" id="fileField">
+</form>
+</body>
+</html>
