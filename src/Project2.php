@@ -1,5 +1,7 @@
 <?php
 
+//declare(strict_types=1);
+
 use Pr2\Car\Aggregates\Engine;
 use Pr2\Car\Car;
 use Pr2\Car\Control\AlarmSystem;
@@ -36,3 +38,4 @@ $objects = [
             " реализует интерфейс CalculateSquare. Площадь: " . $object->calculateSquare() . "\n");
         }
     }
+   

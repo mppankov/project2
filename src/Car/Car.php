@@ -18,7 +18,7 @@ class Car
 
     // конструктор 
     public function __construct(
-        ControlUnitInterface $controlUnit,
+        ControlUnit $controlUnit,
         Engine $engine,
         AlarmSystem $alarmSystem,
         Battery $battery)
