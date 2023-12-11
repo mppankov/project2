@@ -8,9 +8,14 @@ class Auth
 {
     public UsersDB $usersDB;
 
+    public function __construct(UsersDB $usersDB)
+    {
+       $this->usersDB = $usersDB;
+    }
+
     public function checkAuth (string $login, string $password): bool
     {
-        $users = $this->usersDB->database();
+        $users = $this->usersDB->getUserList();
 
          foreach ($users as $user) 
         {
@@ -28,7 +33,7 @@ class Auth
         $loginFromCookie = $_COOKIE['login'] ?? '';
         $passwordFromCookie = $_COOKIE['password'] ?? '';
 
-        if (checkAuth($loginFromCookie, $passwordFromCookie))
+        if ($this->checkAuth($loginFromCookie, $passwordFromCookie))
         {
             return $loginFromCookie;
         }

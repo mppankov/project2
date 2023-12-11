@@ -8,6 +8,7 @@ class Logout
     {
 setcookie('login', '', -10, '/');
 setcookie('password', '', -10, '/');
-header('Location: http://myproject.com/project2/src/Www/AuthorizationUsingCookies/Index.php');
+header('Location: /');
     }
 }
+(new Logout)->out();
