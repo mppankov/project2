@@ -1,6 +1,6 @@
 <?php 
 
-namespace Pr2\Www\AuthorizationUsingCookies;
+namespace Pr2\PhotoAlbum;
 
 class UsersDB
 {

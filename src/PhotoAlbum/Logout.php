@@ -1,6 +1,6 @@
 <?php
 
-namespace Pr2\Www\AuthorizationUsingCookies;
+namespace Pr2\PhotoAlbum;
 
 class Logout
 {
@@ -8,7 +8,7 @@ class Logout
     {
 setcookie('login', '', -10, '/');
 setcookie('password', '', -10, '/');
-header('Location: /');
+header('Location: /www/index.php');
     }
 }
 (new Logout)->out();

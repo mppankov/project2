@@ -1,11 +1,11 @@
 <?php
 
-namespace Pr2\www\AuthorizationUsingCookies;
+namespace Pr2\PhotoAlbum;
 
-use Pr2\Www\AuthorizationUsingCookies\Auth;
-use Pr2\Www\AuthorizationUsingCookies\UsersDB;
+use Pr2\PhotoAlbum\Auth;
+use Pr2\PhotoAlbum\UsersDB;
 
-require_once __DIR__.'/../../../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 $auth = new Auth(new UsersDB);
 
@@ -17,11 +17,11 @@ $login = $auth->getUserLogin();
 </head>
 <body>
 <?php if ($login === null): ?>
-<a href="Login.php">Авторизуйтесь</a>
+<a href="/src/PhotoAlbum/Login.php">Авторизуйтесь</a>
 <?php else: ?>
 Добро пожаловать, <?= $login ?>
 <br>
-<a href="Logout.php">Выйти</a>
+<a href="/src/PhotoAlbum/Logout.php">Выйти</a>
 <?php  endif; ?>
 </body>
 </html>

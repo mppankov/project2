@@ -1,8 +1,8 @@
 <?php
 
-namespace Pr2\Www\AuthorizationUsingCookies;
+namespace Pr2\PhotoAlbum;
 
-use Pr2\Www\AuthorizationUsingCookies\UsersDB;
+use Pr2\PhotoAlbum\UsersDB;
 
 class Auth
 {
