@@ -5,64 +5,28 @@ namespace Pr2\Utils;
 Class FileDownloadsUtils
 {
 
-    public $massage = null;
-
     public function UploadErrors($error): string
     {
         switch ($error) {
 
             case UPLOAD_ERR_INI_SIZE:
-
-                $message = "The uploaded file exceeds the upload_max_filesize directive in php.ini";
-
-                break;
-
+                return "The uploaded file exceeds the upload_max_filesize directive in php.ini";
             case UPLOAD_ERR_FORM_SIZE:
-
-                $message = "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form";
-
-                break;
-
+                return "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form";
             case UPLOAD_ERR_PARTIAL:
-
-                $message = "The uploaded file was only partially uploaded";
-
-                break;
-
+                return "The uploaded file was only partially uploaded";
             case UPLOAD_ERR_NO_FILE:
-
-                $message = "No file was uploaded";
-
-                break;
-
+                return "No file was uploaded";
             case UPLOAD_ERR_NO_TMP_DIR:
-
-                $message = "Missing a temporary folder";
-
-                break;
-
+                return "Missing a temporary folder";
             case UPLOAD_ERR_CANT_WRITE:
-
-                $message = "Failed to write file to disk";
-
-                break;
-
+                return "Failed to write file to disk";
             case UPLOAD_ERR_EXTENSION:
-
-                $message = "File upload stopped by extension";
-
-                break;
-
-
+                return "File upload stopped by extension";
 
             default:
-
-                $message = "Unknown upload error";
-
-                break;
+                return "Unknown upload error";
 
         }
-
-        return $message;
     }
 }

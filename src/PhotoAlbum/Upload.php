@@ -1,15 +1,20 @@
 <?php
 
+use Pr2\PhotoAlbum\Auth;
+use Pr2\PhotoAlbum\UsersDB;
 
-if (!empty($_FILES['attachment'])) {
+require_once __DIR__.'/../../vendor/autoload.php';
+
+$auth = new Auth(new UsersDB);
+$login = $auth->getUserLogin();
+
+if ($login !== null && !empty($_FILES['attachment'])) {
     $file = $_FILES['attachment'];
 
-    
     $srcFileName = $file['name'];
     $newFilePath = __DIR__ . '/Uploads/' . $srcFileName;
-    $allowedExtensions = ['jpg', 'png', 'gif', 'exe'];
+    $allowedExtensions = ['jpg', 'png', 'gif'];
     $extension = pathinfo($srcFileName, PATHINFO_EXTENSION);
-    //$newFilePath =  '/tmp/' . $srcFileName;
     $error = null;
     $result = null;
     
@@ -34,6 +39,12 @@ if (!empty($_FILES['attachment'])) {
     <title>Загрузка файла</title>
 </head>
 <body>
+<?php if ($login === null): ?>
+    <a href="/src/PhotoAlbum/Login.php">Авторизуйтесь</a>
+<?php else: ?>
+    Добро пожаловать, <?= $login ?> |
+    <a href="/src/PhotoAlbum/Logout.php">Выйти</a>
+    <br>
 <?php if ($error): ?>
     <?= $error ?>
 <?php elseif ($result): ?>
@@ -44,5 +55,6 @@ if (!empty($_FILES['attachment'])) {
     <input type="file" name="attachment">
     <input type="submit">
 </form>
+<?php endif; ?>
 </body>
 </html>

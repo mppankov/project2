@@ -20,9 +20,9 @@ if (!empty($_POST)) {
     if ($loggedIn) {
         setcookie('login', $login, 0, '/');
         setcookie('password', $password, 0, '/');
-        header('Location: /www/index.php');
+        header('Location: /src/PhotoAlbum/Upload.php');
     } else {
-        $error = 'Не авторизован';
+        $error = 'Ошибка авторизации';
     }
 }
 ?>
