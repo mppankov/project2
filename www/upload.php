@@ -2,35 +2,36 @@
 
 use Pr2\PhotoAlbum\Auth;
 use Pr2\PhotoAlbum\UsersDB;
+use Pr2\Utils\FileDownloadsUtils;
 
-require_once __DIR__.'/../../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
+//$errorDescription = new FileDownloadsUtils();
 $auth = new Auth(new UsersDB);
 $login = $auth->getUserLogin();
+$result = null;
+$error = null;
 
 if ($login !== null && !empty($_FILES['attachment'])) {
     $file = $_FILES['attachment'];
 
     $srcFileName = $file['name'];
-    $newFilePath = __DIR__ . '/Uploads/' . $srcFileName;
+    $newFilePath = __DIR__ . '/uploads/' . $srcFileName;
     $allowedExtensions = ['jpg', 'png', 'gif'];
     $extension = pathinfo($srcFileName, PATHINFO_EXTENSION);
-    $error = null;
-    $result = null;
+    $downloadError = FileDownloadsUtils::checkErrors($file['error']);
     
-
-    if (!in_array($extension, $allowedExtensions)) {
+    
+    if ($downloadError) {
+        $error = $downloadError;
+    } elseif (!in_array($extension, $allowedExtensions)) {
         $error = 'Загрузка файлов с таким расширением запрещена!';
-    } elseif ($file['error'] !== UPLOAD_ERR_OK) {
-        $error = 'Ошибка при загрузке файла';
-    } elseif ($file['error'] === UPLOAD_ERR_INI_SIZE) {
-        $error = 'Превышен размер файла';
     } elseif (file_exists($newFilePath)) {
         $error = 'Файл с таким именем уже существует';
     } elseif (!move_uploaded_file($file['tmp_name'], $newFilePath)) {
-        $error = 'Ошибка при загрузке файла';
+        $error = 'Ошибка при перемещении файла';
     } else {
-        $result = 'http://myproject.com/src/PhotoAlbum/Uploads/' . $srcFileName;
+        $result = 'http://myproject.com/uploads/' . $srcFileName;
     }
 }
 ?>
@@ -40,10 +41,10 @@ if ($login !== null && !empty($_FILES['attachment'])) {
 </head>
 <body>
 <?php if ($login === null): ?>
-    <a href="/src/PhotoAlbum/Login.php">Авторизуйтесь</a>
+    <a href="/login.php">Авторизуйтесь</a>
 <?php else: ?>
     Добро пожаловать, <?= $login ?> |
-    <a href="/src/PhotoAlbum/Logout.php">Выйти</a>
+    <a href="/logout.php">Выйти</a>
     <br>
 <?php if ($error): ?>
     <?= $error ?>
@@ -51,7 +52,7 @@ if ($login !== null && !empty($_FILES['attachment'])) {
     <?= $result ?>
 <?php endif; ?>
 <br>
-<form action="/src/PhotoAlbum/Upload.php" method="post" enctype="multipart/form-data">
+<form action="/upload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="attachment">
     <input type="submit">
 </form>

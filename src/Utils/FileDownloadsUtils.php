@@ -5,7 +5,7 @@ namespace Pr2\Utils;
 Class FileDownloadsUtils
 {
 
-    public function UploadErrors($error): string
+    public static function checkErrors($error): ?string
     {
         switch ($error) {
 
@@ -25,7 +25,7 @@ Class FileDownloadsUtils
                 return "File upload stopped by extension";
 
             default:
-                return "Unknown upload error";
+                return null;
 
         }
     }

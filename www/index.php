@@ -4,13 +4,13 @@
 </head>
 <body>
 <?php
-$files = scandir(__DIR__ . '/../src/PhotoAlbum/Uploads/');
+$files = scandir(__DIR__ . '/uploads/');
 $links = [];
 foreach ($files as $fileName) {
     if ($fileName === '.' || $fileName === '..') {
         continue;
     }
-    $links[] = 'http://myproject.com/src/PhotoAlbum/Uploads/' . $fileName;
+    $links[] = 'http://myproject.com/uploads/' . $fileName;
 }
 foreach ($links as $link):?>
     <a href="<?= $link ?>"><img src="<?= $link ?>" height="80px"></a>

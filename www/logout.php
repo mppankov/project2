@@ -8,7 +8,7 @@ class Logout
     {
 setcookie('login', '', -10, '/');
 setcookie('password', '', -10, '/');
-header('Location: /src/PhotoAlbum/Upload.php');
+header('Location: /login.php');
     }
 }
 (new Logout)->out();

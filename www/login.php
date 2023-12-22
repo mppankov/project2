@@ -3,7 +3,7 @@
 use Pr2\PhotoAlbum\Auth;
 use Pr2\PhotoAlbum\UsersDB;
 
-require_once __DIR__.'/../../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 
 
@@ -20,7 +20,7 @@ if (!empty($_POST)) {
     if ($loggedIn) {
         setcookie('login', $login, 0, '/');
         setcookie('password', $password, 0, '/');
-        header('Location: /src/PhotoAlbum/Upload.php');
+        header('Location: /upload.php');
     } else {
         $error = 'Ошибка авторизации';
     }
@@ -36,7 +36,7 @@ if (!empty($_POST)) {
        <?=$error ?>
 </span>
 <?php endif; ?>
-<form action="/src/PhotoAlbum/Login.php" method="post">
+<form action="/login.php" method="post">
     <label for="login">Имя пользователя: </label><input type="text" name="login" id="login">
     <br>
     <label for="password">Пароль: </label><input type="password" name="password" id="password">
