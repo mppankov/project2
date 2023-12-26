@@ -6,15 +6,14 @@ use Pr2\Utils\FileDownloadsUtils;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-//$errorDescription = new FileDownloadsUtils();
 $auth = new Auth(new UsersDB);
 $login = $auth->getUserLogin();
 $result = null;
 $error = null;
 
 if ($login !== null && !empty($_FILES['attachment'])) {
+    
     $file = $_FILES['attachment'];
-
     $srcFileName = $file['name'];
     $newFilePath = __DIR__ . '/uploads/' . $srcFileName;
     $allowedExtensions = ['jpg', 'png', 'gif'];
