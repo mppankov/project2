@@ -1,10 +1,6 @@
-
-
-
-
-
-
 <?php
+
+
 $login = $_GET['login'] ?? '';
 $password = $_GET['password'] ?? '';
 
