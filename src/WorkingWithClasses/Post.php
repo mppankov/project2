@@ -13,22 +13,22 @@ class Post
         $this->text = $text;
     }
     
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function setTitle($title): void
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
 
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    public function setText($text): void
+    public function setText(string $text): void
     {
         $this->text = $text;
     }

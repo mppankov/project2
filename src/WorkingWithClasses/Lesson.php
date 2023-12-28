@@ -4,12 +4,11 @@ namespace Pr2\WorkingWithClasses;
 
 class Lesson extends Post
 {
-    private $homework;
+    protected $homework;
 
     public function __construct(string $title, string $text, string $homework)
     {
-        $this->title = $title;
-        $this->text = $text;
+        parent::__construct($title, $text);
         $this->homework = $homework;
     }
 
@@ -24,5 +23,4 @@ class Lesson extends Post
     }
 }
 
-$lesson = new Lesson('Заголовок', 'Текст', 'Домашка');
-var_dump($lesson);
+
