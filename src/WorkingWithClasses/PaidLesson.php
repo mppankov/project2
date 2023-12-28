@@ -7,7 +7,11 @@ class PaidLesson extends Lesson
 
     protected $price;
 
-    public function __construct(string $title, string $text, string $homework, float $price)
+    public function __construct(
+        string $title, 
+        string $text, 
+        string $homework, 
+        float $price)
     {
         parent::__construct($title, $text, $homework);
         $this->price = $price;

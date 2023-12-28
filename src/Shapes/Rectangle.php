@@ -2,7 +2,7 @@
 
 namespace Pr2\Shapes;
 
-class Rectangle implements SquareInterface
+class Rectangle //implements SquareInterface
 {
     private $x;
     Private $y;
@@ -12,8 +12,8 @@ class Rectangle implements SquareInterface
         $this->x = $x;
         $this->y = $y;
     }
-    public function calculateSquare(): float
+   /* public function calculateSquare(): float
     {
         return $this->x * $this->y;
-    }
+    }*/
 }

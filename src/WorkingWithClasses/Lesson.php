@@ -6,7 +6,10 @@ class Lesson extends Post
 {
     protected $homework;
 
-    public function __construct(string $title, string $text, string $homework)
+    public function __construct(
+        string $title, 
+        string $text, 
+        string $homework)
     {
         parent::__construct($title, $text);
         $this->homework = $homework;
